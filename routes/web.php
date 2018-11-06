@@ -14,6 +14,7 @@
 Route::get('/',function(){
     //加载模板
     return view('welcome');
+
 });
 
 //分类路由控制器
