@@ -15,5 +15,3 @@ Route::get('/',function(){
     //加载模板
     return view('welcome');
 });
-
-
