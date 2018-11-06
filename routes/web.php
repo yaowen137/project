@@ -16,4 +16,8 @@ Route::get('/',function(){
     return view('welcome');
 });
 
+//分类路由控制器
+Route::resource('/admin/type','Admin\TypeController');
+
+
 
