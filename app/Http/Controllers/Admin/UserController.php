@@ -16,9 +16,7 @@ class UserController extends Controller
     // 查询user表所有数据
     public function index()
     {   
-        dd(session('admin')->authority);
-        // dd(session('admin'));
-        $level = 3;
+        $level = session('admin')->level;
         // 查询user表
         $data = DB::table('user')->where('level', '<', $level)->where('status', '!=', 3)->orderBy('id','desc')->paginate(5);
         // 加工数据
