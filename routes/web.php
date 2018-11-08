@@ -17,8 +17,32 @@ Route::get('/',function(){
 
 });
 
-//分类路由控制器
-Route::resource('/admin/type','Admin\TypeController');
+//后台分类路由控制器
+Route::resource('/atype','Admin\TypeController');
+Route::get('/getcates','Admin\TypeController@getcates');
+//后台查看子分类list
+Route::get('/atypelist','Admin\TypeController@list');
+//后台分类列表ajax删除
+Route::get('atypedel','Admin\TypeController@del');
+
+//后台链接管理
+Route::resource('/alink','Admin\LinkController');
+//后面链接审批列表
+Route::get('/aapply','Admin\LinkController@apply');
+Route::get('/aapply/doadd/{id}','Admin\LinkController@doadd');
+Route::get('/aapply/del/{id}','Admin\LinkController@del');
+
+
+
+
+Route::group(['Middleware'=>'login'],function(){
+		
+});
+//后台登录路由
+Route::resource('/alogin','Admin\LoginController');
+Route::post('/dologin','Admin\LoginController@dologin');
+
+
 
 
 
