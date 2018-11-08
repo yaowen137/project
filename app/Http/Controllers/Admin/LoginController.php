@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Alogin;
+
 use DB;
 use Hash;
 class LoginController extends Controller
@@ -20,12 +22,13 @@ class LoginController extends Controller
     }
 
     //处理登录
-    public function dologin(Request $request)
+    public function dologin(Alogin $request)
     {
+
            //获取数据
            // $data = $request->except('_token');
            $username = $request->input('username');
-           
+           $captcha = $request->input('captcha');
            // dd($password);
            
           // $res=DB::table('user')->select('id','username','level','status','nickname','addtime','authority')->where('username','=',$username)->first();
@@ -57,7 +60,6 @@ class LoginController extends Controller
 
                     session(['admin'=>$data]);
                     return redirect('/admin');
-                    
                 }
                 
             }

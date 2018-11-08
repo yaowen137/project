@@ -36,11 +36,34 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_ls" style="background-corlor:red"><i class="icon-ok"></i></span><input type="password" name="captcha" id="password" placeholder="请输入您的验证码..." style="width:165px;"/>
+                            <div style="float:right;margin-right:23px;">
+                                <img class="thumbnail captcha" src="{{ captcha_src('flat') }}" onclick="this.src='/captcha/flat?'+Math.random()" title="点击图片重新获取验证码">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
                 <div class="control-group">
                     <div class="controls ">
                         <div class="main_input_box error">
+                            @if (count($errors) > 0)
+                                
+                                    @foreach ($errors->all() as $error)
+                                        <h5>{{ $error }}</h5>
+                                    @endforeach
+                              
+                            @endif
+                           
                             @if(session('error'))
-                            <h3>{{session('error')}}</h3>
+                            
+                            <h5>{{session('error')}}</h5>
+                            
                             @endif
                         </div>
                     </div>
