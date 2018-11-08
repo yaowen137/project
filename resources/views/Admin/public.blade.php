@@ -4,13 +4,14 @@
 <title>后台管理中心</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="./static/Admin/css/bootstrap.min.css" />
-<link rel="stylesheet" href="./static/Admin/css/bootstrap-responsive.min.css" />
-<link rel="stylesheet" href="./static/Admin/css/fullcalendar.css" />
-<link rel="stylesheet" href="./static/Admin/css/matrix-style.css" />
-<link rel="stylesheet" href="./static/Admin/css/matrix-media.css" />
-<link href="font-awesome/./static/Admin/css/font-awesome.css" rel="stylesheet" />
-<link rel="stylesheet" href="./static/Admin/css/jquery.gritter.css" />
+<link rel="stylesheet" href="/static/Admin/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/static/Admin/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="/static/Admin/css/fullcalendar.css" />
+<link rel="stylesheet" href="/static/Admin/css/matrix-style.css" />
+<link rel="stylesheet" href="/static/Admin/css/matrix-media.css" />
+<link href="font-awesome//static/Admin/css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" href="/static/Admin/css/jquery.gritter.css" />
+<link rel="stylesheet" href="/static/Admin/css/render.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -38,7 +39,7 @@
 <!--sidebar-menu-->
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> 系统管理中心</a>
   <ul>
-    <li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>首页</span></a> </li>
+    <li class="active"><a href="/admin"><i class="icon icon-home"></i> <span>首页</span></a> </li>
     <li class="submenu"> <a href="#"><i class="icon icon-fullscreen"></i> <span>用户管理</span></a>
       <ul>
         <li><a href="/auser">查看用户</a></li>
@@ -92,27 +93,27 @@
 </div>
 <!--end-Footer-part-->
 
-<script src="./static/Admin/js/excanvas.min.js"></script> 
-<script src="./static/Admin/js/jquery.min.js"></script> 
-<script src="./static/Admin/js/jquery.ui.custom.js"></script> 
-<script src="./static/Admin/js/bootstrap.min.js"></script> 
-<script src="./static/Admin/js/jquery.flot.min.js"></script> 
-<script src="./static/Admin/js/jquery.flot.resize.min.js"></script> 
-<script src="./static/Admin/js/jquery.peity.min.js"></script> 
-<script src="./static/Admin/js/fullcalendar.min.js"></script> 
-<script src="./static/Admin/js/matrix.js"></script> 
-<script src="./static/Admin/js/matrix.dashboard.js"></script> 
-<script src="./static/Admin/js/jquery.gritter.min.js"></script> 
-<script src="./static/Admin/js/matrix.interface.js"></script> 
-<script src="./static/Admin/js/matrix.chat.js"></script> 
-<script src="./static/Admin/js/jquery.validate.js"></script> 
-<script src="./static/Admin/js/matrix.form_validation.js"></script> 
-<script src="./static/Admin/js/jquery.wizard.js"></script> 
-<script src="./static/Admin/js/jquery.uniform.js"></script> 
-<script src="./static/Admin/js/select2.min.js"></script> 
-<script src="./static/Admin/js/matrix.popover.js"></script> 
-<script src="./static/Admin/js/jquery.dataTables.min.js"></script> 
-<script src="./static/Admin/js/matrix.tables.js"></script> 
+<script src="/static/Admin/js/excanvas.min.js"></script> 
+<script src="/static/Admin/js/jquery.min.js"></script> 
+<script src="/static/Admin/js/jquery.ui.custom.js"></script> 
+<script src="/static/Admin/js/bootstrap.min.js"></script> 
+<script src="/static/Admin/js/jquery.flot.min.js"></script> 
+<script src="/static/Admin/js/jquery.flot.resize.min.js"></script> 
+<script src="/static/Admin/js/jquery.peity.min.js"></script> 
+<script src="/static/Admin/js/fullcalendar.min.js"></script> 
+<script src="/static/Admin/js/matrix.js"></script> 
+<script src="/static/Admin/js/matrix.dashboard.js"></script> 
+<script src="/static/Admin/js/jquery.gritter.min.js"></script> 
+<script src="/static/Admin/js/matrix.interface.js"></script> 
+<script src="/static/Admin/js/matrix.chat.js"></script> 
+<script src="/static/Admin/js/jquery.validate.js"></script> 
+<script src="/static/Admin/js/matrix.form_validation.js"></script> 
+<script src="/static/Admin/js/jquery.wizard.js"></script> 
+<script src="/static/Admin/js/jquery.uniform.js"></script> 
+<script src="/static/Admin/js/select2.min.js"></script> 
+<script src="/static/Admin/js/matrix.popover.js"></script> 
+<script src="/static/Admin/js/jquery.dataTables.min.js"></script> 
+<script src="/static/Admin/js/matrix.tables.js"></script> 
 
 <script type="text/javascript">
   // This function is called from the pop-up menus to transfer to
