@@ -89,9 +89,9 @@ class AuthorityController extends Controller
         $data['password'] = Hash::make($data['password']);
         unset($data['repassword']);
         if (DB::table('user')->insert($data)) {
-            echo '<script>alert("添加成功");location="/aauthority"</script>';
+            return redirect('/aauthority')->with('success','添加成功');
         } else {
-            echo '<script>alert("添加失败，请重试！");location="/aauthority/create"</script>';
+            return redirect('/aauthority/crate')->with('error','添加失败');
         }
     }
 
@@ -105,9 +105,9 @@ class AuthorityController extends Controller
     {
         $data['status'] = 3;
         if (DB::table('user')->where('id','=',$id)->update($data)) {
-            echo '<script>alert("删除成功");location="/aauthority"</script>';
+            return redirect('/aauthority')->with('success','删除成功');
         } else {
-            echo '<script>alert("删除失败，请重试！");location="/aauthority/'.$id.'/edit"</script>';
+            return redirect('/aauthority')->with('error','删除失败');
         }
     }
 
@@ -139,9 +139,9 @@ class AuthorityController extends Controller
     {
         $data['authority'] = implode(',',$request->input('authority'));
         if (DB::table('user')->where('id','=',$id)->update($data)) {
-            echo '<script>alert("修改成功");location="/aauthority"</script>';
+            return redirect('/aauthority')->with('success','修改成功');
         } else {
-            echo '<script>alert("修改失败，请重试！");location="/aauthority/'.$id.'/edit"</script>';
+            return redirect('/aauthority/'.$id.'/edit')->with('error','修改失败');
         }
     }
 

@@ -11,6 +11,22 @@
     <div class="row-fluid">
       <div class="span12">
       <a href="/aauthority/create" class="btn btn-success">添加管理员</a>
+           @if(session('success'))
+            <div class="alert alert-success alert-dismissible" role="alert" align="center" style="height:50%">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>{{session('success')}}</strong> 
+            </div>
+            @endif
+            @if(session('error'))
+            <div class="alert alert-danger alert-dismissible" role="alert" align="center" style="height:50%">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>{{session('error')}}</strong> 
+            </div>
+            @endif
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
             <h5>权限管理</h5>
@@ -20,7 +36,7 @@
               @if (isset($data[0]))
               <thead>
                 <tr>
-                  <th>序号</th>
+                  <th>id</th>
                   <th>管理员账号</th>
                   <th>权限</th>
                   <th>操作</th>

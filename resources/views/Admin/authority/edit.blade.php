@@ -12,6 +12,22 @@
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
             <h5>用户信息</h5>
+            @if(session('success'))
+            <div class="alert alert-success alert-dismissible" role="alert" align="center" style="height:50%">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>{{session('success')}}</strong> 
+            </div>
+            @endif
+            @if(session('error'))
+            <div class="alert alert-danger alert-dismissible" role="alert" align="center" style="height:50%">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>{{session('error')}}</strong> 
+            </div>
+            @endif
           </div>
           <div class="widget-content nopadding">
           <form action="/aauthority/{{$data->id}}" method="post" class="form-horizontal">

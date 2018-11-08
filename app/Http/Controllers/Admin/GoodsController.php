@@ -63,8 +63,12 @@ class GoodsController extends Controller
         }else{
             echo '<script>alert("图片格式不符！");location="/agoods/create"</script>';
         }
-        DB::table('goods')->insert($data);
-        return redirect('/agoods');
+        if (DB::table('goods')->insert($data)) {
+            // 添加分词
+            return redirect('/agoods')->with('success','添加成功');
+        } else {
+            return redirect('/agoods/create')->with('error','添加失败');
+        }
     }
 
     /**
@@ -114,9 +118,10 @@ class GoodsController extends Controller
             }
         }
         if (DB::table('goods')->where('id','=',$id)->update($data)) {
-            echo '<script>alert("修改成功");location="/agoods"</script>';
+            // 删除分词重新添加
+            return redirect('/agoods')->with('success','修改成功');
         } else {
-            echo '<script>alert("修改失败，请重试！");location="/agoods/'.$id.'/edit"</script>';
+            return redirect('/agoods/'.$id.'/edit')->with('error','修改失败');
         }
     }
 
@@ -131,9 +136,9 @@ class GoodsController extends Controller
         $data = DB::table('goods')->select('pic')->where('id', $id)->first()->pic;
         if (DB::table('goods')->where('id', $id)->delete()) {
             unlink('.'.$data);
-            echo '<script>alert("删除成功");location="/agoods"</script>';
-         } else {
-            echo '<script>alert("删除失败，请重试！");location="/agoods"</script>';
-         }
+            return redirect('/agoods')->with('success','删除成功');
+        } else {
+            return redirect('/agoods')->with('error','删除失败');
+        }
     }
 }

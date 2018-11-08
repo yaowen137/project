@@ -7,6 +7,22 @@
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 商品管理</a> <a href="/agoods">查看商品</a> <a href="#" class="current">商品编辑</a> </div>
     <h1>商品编辑</h1>
   </div>
+  @if(session('success'))
+            <div class="alert alert-success alert-dismissible" role="alert" align="center" style="height:50%">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>{{session('success')}}</strong> 
+            </div>
+            @endif
+            @if(session('error'))
+            <div class="alert alert-danger alert-dismissible" role="alert" align="center" style="height:50%">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+              <strong>{{session('error')}}</strong> 
+            </div>
+            @endif
   <div class="container-fluid"><hr>
     <div class="row-fluid">
       <div class="span12">
@@ -68,7 +84,7 @@
               <div class="form-actions">
               {{csrf_field()}}
               {{method_field('PUT')}}
-                <input type="submit" value="修改" onclick="return false" class="btn btn-success">
+                <input type="submit" value="修改" onclick="return false" class="btn btn-success">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/agoods" class="btn btn-info">返回</a>
               </div>
           </form>          
           </div>

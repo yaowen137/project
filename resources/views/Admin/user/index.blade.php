@@ -1,5 +1,4 @@
 @extends("Admin.public")
-@section('name','Admin')
 @section('content')
 <div id="content">
   <div id="content-header">
@@ -19,7 +18,7 @@
             @if (isset($data[0]))
               <thead>
                 <tr>
-                  <th>序号</th>
+                  <th>id</th>
                   <th>用户名</th>
                   <th>等级</th>
                   <th>状态</th>

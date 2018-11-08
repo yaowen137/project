@@ -12,6 +12,9 @@ class JstypeController extends Controller
     {	
     	$parentid = $request->input('parentid');
     	$res = DB::table('type')->where('parentid', $parentid)->get();
+    	foreach ($res as $key => $value) {
+    		$res[$key]->path = explode(',', $value->path);
+    	}
     	// dd($res);
     	echo json_encode($res);
     }
