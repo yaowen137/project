@@ -50,7 +50,7 @@ class TypeController extends Controller
         }
         // dd($cate);
         //加载列表模板
-        return view('Admin.Type.index',['cate'=>$cate,'request'=>$request->all()]);
+        return view('Admin.type.index',['cate'=>$cate,'request'=>$request->all()]);
     }
 
     //查看子分类
@@ -69,7 +69,7 @@ class TypeController extends Controller
        
        $cate = DB::table('type')->where('parentid',$pid)->get();
        // dd($data);
-       return view('Admin.Type.list',['cate'=>$cate]);
+       return view('Admin.type.list',['cate'=>$cate]);
     }
 
     /**
@@ -82,7 +82,7 @@ class TypeController extends Controller
         //加载模板
         $cate = $this->getcates();
         // dd($cate);
-        return view('Admin.Type.add',['cate'=>$cate]);
+        return view('Admin.type.add',['cate'=>$cate]);
     }
 
     /**
@@ -145,7 +145,7 @@ class TypeController extends Controller
         // dd($id);
         $data = DB::table('type')->select()->where('id',$id)->first();
         
-        return view('Admin.Type.edit',['data'=>$data]);
+        return view('Admin.type.edit',['data'=>$data]);
     }
 
     /**

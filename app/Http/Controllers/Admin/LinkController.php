@@ -19,7 +19,7 @@ class LinkController extends Controller
         //加载模板
         $data = DB::table('link')->where('name','like','%'.$request->input('keyworks').'%')->orderBy('id','ASC')->paginate(8);
         // dd($data);
-        return view('Admin.Link.index',['data'=>$data,'request'=>$request->all()]);
+        return view('Admin.link.index',['data'=>$data,'request'=>$request->all()]);
         
     }
 
@@ -33,7 +33,7 @@ class LinkController extends Controller
     {
         //加载模板
         
-        return view('Admin.Link.add');
+        return view('Admin.link.add');
     }
 
     /**
@@ -84,7 +84,7 @@ class LinkController extends Controller
     {
         //加载模板 引入默认值
         $data = DB::table('link')->where('id',$id)->first();
-        return view('Admin.Link.edit',['data'=>$data]);
+        return view('Admin.link.edit',['data'=>$data]);
     }
 
     /**
