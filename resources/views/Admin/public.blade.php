@@ -73,7 +73,7 @@
       <ul>
         <li><a href="/alink">查看链接</a></li>
         <li><a href="/alink/create">添加连接</a></li>
-        <li><a href="/apply">审核链接</a></li>
+        <li><a href="/aapply">审核链接</a></li>
       </ul>
     </li>
   </ul>
@@ -81,6 +81,7 @@
 <!--sidebar-menu-->
 
 <!-- 内容双占位符 -->
+
 @section('content')
 
 

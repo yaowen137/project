@@ -11,13 +11,15 @@
 |
 */
 // 主页面
-Route::get('/',function(){
-    //加载模板
-    return view('welcome');
-});
 
 //订单页路由
 Route::resource("/aorder",'Admin\OrderController');
 //广告模块路由
 Route::resource("/aadvert","Admin\AdvertController");
+
+
+
+
+
+
 
