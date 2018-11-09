@@ -59,15 +59,6 @@ class TypeController extends Controller
     //查看子分类
     public function list(Request $request)
     {
-       // var_dump(empty($_GET['pid']));exit;
-       // if (empty($_GET['pid'])) {
-       //          //没有点击
-       //          $pid = 0;
-       //      }else{
-       //          //查看子分类
-       //          $pid = $_GET['pid'];
-       //      }
-      
        $pid = $_GET['pid'];
        
        $cate = DB::table('type')->where('parentid',$pid)->get();

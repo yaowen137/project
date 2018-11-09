@@ -56,7 +56,7 @@
 
   // 其他级别内容
   // live 事件委派 他可以帮助我们将动态生成的内容只要选择器相同就可以有相应的事件
-  $('select').live('change',function(){
+  $('#sid').live('change',function(){
     // 将当前的对象存储起来
     obj = $(this);
     // 通过id来查找下一个
@@ -65,28 +65,30 @@
     // 清除所有其他的select
     obj.nextAll('select').remove();
     // alert(id);
-    $.getJSON('/jstype',{'parentid':id},function(result){
-      // console.log(result[0]['path'].length);
-      if (result !='' && result[0]['path'].length < 3) {
-        // 创建一个select标签对象
-        var select = $('<select></select>');
-        // 防止当前城市没有办法选择所以我们先写上一个请选择option标签
-        var op = $('<option value="'+id+'">二级分类</option>');
-        select.append(op);
+    if ($('#sid').val() != 0) {
+      $.getJSON('/jstype',{'parentid':id},function(result){
+        // console.log(result[0]['path'].length);
+        if (result !='' && result[0]['path'].length < 3) {
+          // 创建一个select标签对象
+          var select = $('<select></select>');
+          // 防止当前城市没有办法选择所以我们先写上一个请选择option标签
+          var op = $('<option value="'+id+'">二级分类</option>');
+          select.append(op);
 
 
-        // 循环得到的数组里面的option标签添加到select
-        for (var i = 0; i < result.length; i++) {
-          var info = $('<option value="'+result[i].id+'">'+result[i].name+'</option>');
-          // 将option标签添加到select标签中
-          select.append(info);
+          // 循环得到的数组里面的option标签添加到select
+          for (var i = 0; i < result.length; i++) {
+            var info = $('<option value="'+result[i].id+'">'+result[i].name+'</option>');
+            // 将option标签添加到select标签中
+            select.append(info);
+          }
+
+          // 将select标签添加到当前标签的后面
+          obj.after(select);
+          // console.log(result);
         }
-
-        // 将select标签添加到当前标签的后面
-        obj.after(select);
-        // console.log(result);
-      }
-    })
+      })
+    }
   })
     
  setInterval(function(){

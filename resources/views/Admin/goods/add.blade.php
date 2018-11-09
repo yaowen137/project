@@ -1,5 +1,4 @@
 @extends("Admin.public")
-@section('name','Admin')
 @section('content')
 <script src="/static/js/jquery-1.8.3.min.js"></script>
 <div id="content">

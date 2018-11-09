@@ -28,7 +28,7 @@
 <!--top-Header-menu-->
 <div id="user-nav" class="navbar navbar-inverse">
   <ul class="nav">
-    <li><a href="#"><i class="icon-key"></i> 欢迎{{session('admin')->username}}</a></li>
+    <li><a href="#"><i class="icon-eye-open"></i> 欢迎{{session('admin')->username}}</a></li>
     <li><a href="/alogout"><i class="icon-key"></i> 安全退出</a></li>
   </ul>
 </div>
