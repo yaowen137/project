@@ -3,8 +3,8 @@
 <script src="/static/js/jquery-1.8.3.min.js"></script>
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 管理首页</a> <a href="#">广告管理</a> <a href="#" class="current">添加广告</a> </div>
-    <h1>添加广告</h1>
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 管理首页</a> <a href="/aadvert">广告管理</a> <a href="#" class="current">修改广告</a> </div>
+    <h1>修改广告</h1>
   </div>
   <div class="container-fluid"><hr>
     <div class="row-fluid">

@@ -99,11 +99,8 @@
       // 将我们得到的每个值放置到数组中 push() 将数值添加到数组中
       // arr.push(opdata);
     })
-    if (opdata != '--请选择--') {
-
-      $('input[type=submit]').attr('onclick','return true');
-      $('#tid').val(opdata);
-    }
+    $('input[type=submit]').attr('onclick','return true');
+    $('#tid').val(opdata);
   },300);
 
 </script>

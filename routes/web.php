@@ -10,6 +10,7 @@
 |
 */
 
+
 // 登录中间件
 Route::group(['middleware'=>'login'], function(){
 	// 后台首页

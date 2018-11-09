@@ -78,7 +78,7 @@
             <div class="control-group">
               <label class="control-label">内容：</label>
               <div class="controls">
-              <script id="ue-container" name="content"  type="text/plain" style="width:750px;height:400px">
+              <script id="ue-container" name="content"  type="text/plain" style="width:99%;height:400px">
               </script>
               </div>
             </div>

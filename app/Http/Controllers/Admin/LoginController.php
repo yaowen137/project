@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Alogin;
+
 use DB;
 use Hash;
     
@@ -21,37 +23,37 @@ class LoginController extends Controller
     }
 
     //处理登录
-    public function dologin(Request $request)
+    public function dologin(Alogin $request)
     {
-           //获取数据
-           // $data = $request->except('_token');
-           $username = $request->input('username');
-           
-           // dd($password);
-           
-          // $res=DB::table('user')->select('id','username','level','status','nickname','addtime','authority')->where('username','=',$username)->first();
-          $res=DB::table('user')->where('username','=',$username)->first();
-          // dd($res);
-          // 判断密码是否有误
-          if(!(Hash::check($request->input('password'), $res->password))){
-                //错误跳转登录
-                // return redirect('/alogin')->with('error','*密码有误');
-                return back()->with('error','*密码有误');
+       //获取数据
+       // $data = $request->except('_token');
+       $username = $request->input('username');
+       $captcha = $request->input('captcha');
+       // dd($password);
+       
+      // $res=DB::table('user')->select('id','username','level','status','nickname','addtime','authority')->where('username','=',$username)->first();
+      $res=DB::table('user')->where('username','=',$username)->first();
+      // dd($res);
+      // 判断密码是否有误
+        //判断用户名是否有误
+        if(empty($res->username)) {
+            //错误跳转登录
+            return redirect('/alogin')->with('error','*用户名有误');
+        } else {
+            if (!(Hash::check($request->input('password'), $res->password))) {
+            //错误跳转登录
+            // return redirect('/alogin')->with('error','*密码有误');
+            return back()->with('error','*密码有误');
 
-          }else{
-            //判断用户名是否有误
-            if(!$res){
-                //错误跳转登录
-                return redirect('/alogin')->with('error','*用户名有误');
-            }else{
+            } else {
                 //判断用户等级
-                if(!($res->level > 1)){
+                if (!($res->level > 1)) {
                     //小于等于1的 是普通用户，不能登录后台
                     // return redirect('/alogin')->with('error','*你不是后台管理员用户');
                     return back()->with('error','*你不是后台管理员用户');
                     // session(['admin'=>$res]);
                     // return redirect('/admin');
-                }else{
+                } else {
                     // echo 'aaaaaaaaaaaa';
                     // dd($res);
                     $data=DB::table('user')->select('id','username','level','status','nickname','addtime','authority')->where('username','=',$username)->first();
@@ -59,11 +61,9 @@ class LoginController extends Controller
                     session(['admin'=>$data]);
                     session('admin')->authority = explode(',', session('admin')->authority);
                     return redirect('/admin');
-                    
                 }
-                
             }
-          }
+        }
     }
 
     /**

@@ -62,6 +62,7 @@ class TypeController extends Controller
        $pid = $_GET['pid'];
        
        $cate = DB::table('type')->where('parentid',$pid)->get();
+
        // dd($cate);
        // 获取上级分类名
        foreach ($cate as $key => $value) {
