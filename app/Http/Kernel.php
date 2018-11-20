@@ -56,8 +56,10 @@ class Kernel extends HttpKernel
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        //中间件注册 login 中间件的规则
+        //中间件注册 后台login 中间件的规则
         'login' => \App\Http\Middleware\LoginMiddleware::class,
+        //中间件注册 前台ulogin 中间件的规则
+        'ulogin' => \App\Http\Middleware\uLoginMiddleware::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
 }
