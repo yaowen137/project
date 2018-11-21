@@ -12,7 +12,7 @@ return [
     ],
 
     'flat'   => [
-        'length'    => 6,
+        'length'    => 4,
         'width'     => 140,
         'height'    => 28,
         'quality'   => 90,

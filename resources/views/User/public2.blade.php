@@ -7,8 +7,10 @@
   <link href="/static/User/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" /> 
   <link href="/static/User/basic/css/demo.css" rel="stylesheet" type="text/css" /> 
   <link href="/static/User/css/cartstyle.css" rel="stylesheet" type="text/css" /> 
-  <link href="/static/User/css/jsstyle.css" rel="stylesheet" type="text/css" /> 
-  <script type="text/javascript" src="/static/User/js/address.js"></script> 
+  <link href="/static/User/css/jsstyle.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="/static/User/js/address.js"></script>
+
+
  </head> 
  <body> 
   <!--顶部导航条 --> 
@@ -17,19 +19,21 @@
     <div class="topMessage"> 
      <div class="menu-hd"> 
        @if (session('user'))
-         <a href="#" target="_top" class="h">欢迎{{session('user')['nickname']}}</a> &nbsp;&nbsp;&nbsp;
-         <a href="#" target="_top">退出</a>
+         <a href="#" target="_top" class="h">欢迎{{session('user')->nickname}}</a> &nbsp;&nbsp;&nbsp;
+         <a href="/ulogout" target="_top">退出</a>
         @else
-         <a href="#" target="_top" class="h">请登录</a> &nbsp;&nbsp;&nbsp;
-         <a href="#" target="_top">免费注册</a>
+         <a href="/ulogin" target="_top" class="h">请登录</a> &nbsp;&nbsp;&nbsp;
+         <a href="/register" target="_top">免费注册</a>
         @endif
      </div> 
-    </div> 
+    </div>
+   
+
    </ul> 
    <ul class="message-r"> 
     <div class="topMessage home"> 
      <div class="menu-hd">
-      <a href="#" target="_top" class="h">商城首页</a>
+      <a href="/" target="_top" class="h">商城首页</a>
      </div> 
     </div> 
     <div class="topMessage my-shangcheng"> 
@@ -46,8 +50,8 @@
   </div> 
   <!--悬浮搜索框--> 
   <div class="nav white">
-   <div class="logoBig"> 
-    <li><img src="/static/User/images/logobig.jpg" /></li> 
+   <div class="logoBig">
+    <li><img src="/static/User/images/logobig.jpg" /></li>
    </div> 
    <div class="search-bar pr"> 
     <a name="index_none_header_sysc" href="#"></a> 

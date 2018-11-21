@@ -49,7 +49,7 @@
        </div> 
        <div class="topMessage mini-cart"> 
         <div class="menu-hd">
-         <a id="mc-menu-hd" href="/ushopping" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">@yield('shoppingcar')</strong></a>
+         <a id="mc-menu-hd" href="/ushoppingcar" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">@yield('shoppingcar')</strong></a>
         </div> 
        </div>
        <div class="topMessage my-shangcheng"> 

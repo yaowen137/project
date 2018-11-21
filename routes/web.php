@@ -64,85 +64,140 @@ Route::get('/jstype', 'Admin\JsController@jstype');
 // 广告动态
 Route::get('/jsadvert', 'Admin\JsController@jsadvert');
 
-// 个人中心路由=======================================》
 
-// 个人中心首页
-Route::get('/pindex', 'User\PersonController@pindex');
+//前台中间件
+Route::group(['middleware'=>'ulogin'], function(){
+	//购物车页面
+	Route::get('/ushoppingcar','User\UshopcarController@index');
 
-// 个人信息
-Route::get('/puserinfo', 'User\PersonController@puserinfo');
+	//ajax增加数量
+	Route::get('/ajaxcaradd','User\UshopcarController@ajaxadd');
 
-// 更新个人信息
-Route::post('/doinfoupdate', 'User\PersonController@doinfoupdate');
+	//ajax减少数量
+	Route::get('/ajaxcarsubtract','User\UshopcarController@ajaxsubtract');
 
-// AJAX修改昵称
-Route::get('/pupdatenickname', 'User\PersonController@pupdatenickname');
+	//ajax删除购物车
+	Route::get('/ajaxdel','User\UshopcarController@ajaxdel');
 
-// 安全设置
-Route::get('/psecurity', 'User\PersonController@psecurity');
-
-// 修改密码
-Route::get('/ppassword', 'User\PersonController@ppassword');
-
-// 执行修改密码
-Route::post('/repassword', 'User\PersonController@repassword');
-
-// 注销账户
-Route::get('/punsetuser', 'User\PersonController@punsetuser');
-
-// 验证更改手机
-Route::get('/pphone', 'User\PersonController@pphone');
-
-// 手机验证码ajax
-Route::get('/pcode', 'User\PersonController@pcode');
-
-// 检验验证码或密码
-Route::post('/pvrfcode', 'User\PersonController@pvrfcode');
-
-// 更改手机
-Route::get('/pcphone', 'User\PersonController@pcphone');
-
-// 绑定手机验证码ajax
-Route::get('/pcpcode', 'User\PersonController@pcpcode');
-
-// 操作更换手机
-Route::post('/pchangephone', 'User\PersonController@pchangephone');
-
-// 地址管理手机
-Route::resource('/paddress', 'User\AddressController');
-
-// ajax地址三级联动
-Route::get('/addressajax', 'User\PersonController@addressajax');
-
-// 我的收藏首页
-Route::get('/pcollection', 'User\PersonController@pcollection');
-
-// ajax删除收藏
-Route::get('/ajaxcollection/{id}', 'User\PersonController@ajaxcollection');
-
-// ajax收藏加入购物车
-Route::get('/ajaxshoppingcar/{id}', 'User\PersonController@ajaxshoppingcar');
-
-//订单管理页面
-Route::get('/porder', 'User\PersonController@porder');
-
-// 订单详情页面
-Route::get('/porderinfo/{id}', 'User\PersonController@porderinfo');
+	//删除全部
+	Route::get('/alldel','User\UshopcarController@alldel');
 
 
-// 关闭订单
-Route::get('/pclose/{id}', 'User\PersonController@pclose');
+	//前台处理订单页面
+	Route::post('/uorderadd','User\UorderController@makeorder');
+
+	//前台处理立即购买页面
+	Route::get('/onlygoods/{id}','User\UorderController@onlygoods');
+
+	//前台购买后订单详情页面
+	Route::post('/orderdetail','User\UorderController@show');
+
+	//前台支付方法
+	Route::post('/pays','User\UorderController@pays');
+
+	//支付成功跳转页面
+	Route::get('/success','User\UorderController@success');
 
 
-// 确认收货
-Route::get('/pconfirm/{id}', 'User\PersonController@pconfirm');
 
-// 填写评价
-Route::get('/pcomment/{id}', 'User\PersonController@pcomment');
+	// 个人中心首页
+	Route::get('/pindex', 'User\PersonController@pindex');
 
-// 处理评价
-Route::post('/paddcomment', 'User\PersonController@paddcomment');
+	// 个人信息
+	Route::get('/puserinfo', 'User\PersonController@puserinfo');
 
-// 评价记录
-Route::get('/precord', 'User\PersonController@precord');
-// 个人中心路由=======================================》
+	// 更新个人信息
+	Route::post('/doinfoupdate', 'User\PersonController@doinfoupdate');
+
+	// AJAX修改昵称
+	Route::get('/pupdatenickname', 'User\PersonController@pupdatenickname');
+
+	// 安全设置
+	Route::get('/psecurity', 'User\PersonController@psecurity');
+
+	// 修改密码
+	Route::get('/ppassword', 'User\PersonController@ppassword');
+
+	// 执行修改密码
+	Route::post('/repassword', 'User\PersonController@repassword');
+
+	// 注销账户
+	Route::get('/punsetuser', 'User\PersonController@punsetuser');
+
+	// 验证更改手机
+	Route::get('/pphone', 'User\PersonController@pphone');
+
+	// 手机验证码ajax
+	Route::get('/pcode', 'User\PersonController@pcode');
+
+	// 检验验证码或密码
+	Route::post('/pvrfcode', 'User\PersonController@pvrfcode');
+
+	// 更改手机
+	Route::get('/pcphone', 'User\PersonController@pcphone');
+
+	// 绑定手机验证码ajax
+	Route::get('/pcpcode', 'User\PersonController@pcpcode');
+
+	// 操作更换手机
+	Route::post('/pchangephone', 'User\PersonController@pchangephone');
+
+	// 地址管理手机
+	Route::resource('/paddress', 'User\AddressController');
+
+	// ajax地址三级联动
+	Route::get('/addressajax', 'User\PersonController@addressajax');
+
+	// 我的收藏首页
+	Route::get('/pcollection', 'User\PersonController@pcollection');
+
+	// ajax删除收藏
+	Route::get('/ajaxcollection/{id}', 'User\PersonController@ajaxcollection');
+
+	// ajax收藏加入购物车
+	Route::get('/ajaxshoppingcar/{id}', 'User\PersonController@ajaxshoppingcar');
+
+	//订单管理页面
+	Route::get('/porder', 'User\PersonController@porder');
+
+	// 订单详情页面
+	Route::get('/porderinfo/{id}', 'User\PersonController@porderinfo');
+
+
+	// 关闭订单
+	Route::get('/pclose/{id}', 'User\PersonController@pclose');
+
+
+	// 确认收货
+	Route::get('/pconfirm/{id}', 'User\PersonController@pconfirm');
+
+	// 填写评价
+	Route::get('/pcomment/{id}', 'User\PersonController@pcomment');
+
+	// 处理评价
+	Route::post('/paddcomment', 'User\PersonController@paddcomment');
+
+	// 评价记录
+	Route::get('/precord', 'User\PersonController@precord');
+});
+
+//前台注册
+Route::resource('/register', 'User\RegisterController');
+//前台获取注册验证码
+Route::get('/registercode','User\RegisterController@getCode');
+//前台ajax验证校验码
+Route::get('/codecheck','User\RegisterController@check');
+//前台ajax验证注册用户名
+Route::get('/namecheck','User\RegisterController@namecheck');
+//前台ajax验证注册手机号码
+Route::get('/phonecheck','User\RegisterController@phonecheck');
+//前台登录
+Route::resource('/ulogin','User\UloginController');
+//前台退出登录
+Route::get('/ulogout','User\UloginController@logout');
+//前台通过手机号找回密码
+Route::get('/forget','User\UloginController@forget');
+//处理手机号与验证码
+Route::post('/doforget','User\UloginController@doforget');
+//重置密码
+Route::post('/dofind','User\UloginController@dofind');

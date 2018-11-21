@@ -22,8 +22,6 @@ class PersonController extends Controller
 	// 个人中心首页
     public function pindex ()
     {	
-    	// 模拟一个session
-    	session(['user' => user::where('username', 'Kenny')->first()]);
     	// 获取购物车的产品数
     	$shoppingcar = count(shoppingcar::where('uid', session('user')->id)->get());
     	// 获取用户详情列表资料
@@ -123,9 +121,9 @@ class PersonController extends Controller
     	}
     	if (userinfo::where('uid', session('user')->id)->update($data)) {
     		echo '<script>alert("修改成功");location="/puserinfo"</script>';
-		}else{
-			echo '<script>alert("修改失败");location="/puserinfo"</script>';
-		}
+  		}else{
+  			echo '<script>alert("修改失败");location="/puserinfo"</script>';
+  		}
     }
 
 

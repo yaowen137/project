@@ -68,25 +68,23 @@
     if ($('#sid').val() != 0) {
       $.getJSON('/jstype',{'parentid':id},function(result){
         // console.log(result[0]['path'].length);
-        if (result !='' && result[0]['path'].length < 3) {
-          // 创建一个select标签对象
-          var select = $('<select></select>');
-          // 防止当前城市没有办法选择所以我们先写上一个请选择option标签
-          var op = $('<option value="'+id+'">二级分类</option>');
-          select.append(op);
+        // 创建一个select标签对象
+        var select = $('<select></select>');
+        // 防止当前城市没有办法选择所以我们先写上一个请选择option标签
+        var op = $('<option value="'+id+'">二级分类</option>');
+        select.append(op);
 
 
-          // 循环得到的数组里面的option标签添加到select
-          for (var i = 0; i < result.length; i++) {
-            var info = $('<option value="'+result[i].id+'">'+result[i].name+'</option>');
-            // 将option标签添加到select标签中
-            select.append(info);
-          }
-
-          // 将select标签添加到当前标签的后面
-          obj.after(select);
-          // console.log(result);
+        // 循环得到的数组里面的option标签添加到select
+        for (var i = 0; i < result.length; i++) {
+          var info = $('<option value="'+result[i].id+'">'+result[i].name+'</option>');
+          // 将option标签添加到select标签中
+          select.append(info);
         }
+
+        // 将select标签添加到当前标签的后面
+        obj.after(select);
+        // console.log(result);
       })
     }
   })
