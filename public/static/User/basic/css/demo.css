@@ -99,9 +99,15 @@ color: #555555;background:none;border-color:transparent;cursor: default;}
  
 /*搜索框*/
 .search-bar{height:41px; margin: 8px 20px 0 75px;}
+<<<<<<< HEAD
 .search-bar form{border:2px solid black; max-width:670px;}
 .search-bar input{padding-left:5px;height:32px;width:78%;outline:none; font-size:12px; border:none}
 #ai-topsearch { width:20%;height:32px;border:none;float:right;background: black none repeat scroll 0% 0%;
+=======
+.search-bar form{border:2px solid #F03726; max-width:670px;}
+.search-bar input{padding-left:5px;height:32px;width:78%;outline:none; font-size:12px; border:none}
+#ai-topsearch { width:20%;height:32px;border:none;float:right;background: #F03726 none repeat scroll 0% 0%;
+>>>>>>> 0dd95b8bd1fa011f17e92c77673b5d99518c9c6c
 color: #F5F5F2;font-size: 14px;cursor:pointer;border-radius:0px 0px ;}
 
 /* 分类*/
@@ -174,7 +180,11 @@ time, mark, audio, video {
 	.nav.white{ position:relative;top:0px;z-index:0;}
      #ai-topsearch{ font-size:18px;}
      /*底部*/
+<<<<<<< HEAD
     .footer {text-align:left; display:block;position: relative;margin: 0px auto; padding: 7px 0px 9px;border-top: 2px solid black; margin-top:20px;}
+=======
+    .footer {text-align:left; display:block;position: relative;margin: 0px auto; padding: 7px 0px 9px;border-top: 2px solid #FF5400; margin-top:20px;}
+>>>>>>> 0dd95b8bd1fa011f17e92c77673b5d99518c9c6c
     .footer .footer-bd p, .footer .footer-hd p {margin-bottom: 8px;line-height: 27px;border-bottom: 1px solid #DDD; text-align:left;}
     .footer .footer-hd a { margin: 0px 4px;white-space: nowrap;color: #6C6C6C;}
     .footer .footer-hd b { margin: 0px 3px;font-weight: 400;color: #DDD;}
@@ -209,7 +219,11 @@ time, mark, audio, video {
 /*分类*/
 .nav-table{max-width:1000px;margin: 0px auto;height: 45px;position: relative;overflow: hidden;}
 .all-goods{font-size: 16px;}
+<<<<<<< HEAD
 .long-title{background:black;color:#fff ;height: 45px;line-height: 45px;display:block;position: absolute;width:150px ;text-align: center;font-size:16px ;top:0px;z-index: 6;}
+=======
+.long-title{background:#d2364c;color:#fff ;height: 45px;line-height: 45px;display:block;position: absolute;width:150px ;text-align: center;font-size:16px ;top:0px;z-index: 6;}
+>>>>>>> 0dd95b8bd1fa011f17e92c77673b5d99518c9c6c
 .nav-cont{position: absolute;padding-left:150px;display:block;width:100% ;top:0px}
 .nav-cont li{float: left;height: 45px;line-height: 45px;}
 .nav-cont li::before{content: '\20';display: inline-block;height: 16px;border-right: 1px solid #d9d9d9;width: 0;vertical-align: middle;margin-left: -1px;}
@@ -285,7 +299,11 @@ background: url(../images/ibar_sprites.png) no-repeat;
 .ibar_login_box {width: 267px;height: 185px;padding: 10px;background: #fff;box-shadow: 0 0 5px rgba(0,0,0,.4);border-radius: 5px 0 0 5px;border-left: 1px solid #ccc\0;border-top: 1px solid #ccc\0;border-bottom: 1px solid #ccc\0;z-index: 3;position: absolute;top: 0px;left: -270px;display: none;}
 
 #shopCart{overflow: hidden;}
+<<<<<<< HEAD
 p.cart_num {width: 21px; height: 21px; display: block; border-radius: 50%;background: red none repeat scroll 0% 0%;text-align: center; line-height: 21px;
+=======
+p.cart_num {width: 21px; height: 21px; display: block; border-radius: 50%;background: #ED145B none repeat scroll 0% 0%;text-align: center; line-height: 21px;
+>>>>>>> 0dd95b8bd1fa011f17e92c77673b5d99518c9c6c
 cursor: pointer;color: #FFF; margin-bottom:10px;}
 .item:hover p.cart_num{ background:#FFF;color: #ED145B}
 /*小图标定位*/

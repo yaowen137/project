@@ -22,6 +22,7 @@ class AuthorityController extends Controller
     {    
         // 调取普通管理员数据
         $data = DB::table('user')->where('level', '=', 2)->where('status', '!=', 3)->orderBy('id','desc')->paginate(5);
+        
         // 数据加工
         foreach ($data as $value) {
             // 将authority内容转化为数组
@@ -119,6 +120,7 @@ class AuthorityController extends Controller
      */
     public function edit($id)
     {   
+
         $data = DB::table('user')->where('id', '=', $id)->first();
         $checked = array('','','','','','');
         $arr = explode(',',$data->authority);

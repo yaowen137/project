@@ -65,6 +65,7 @@ Route::get('/jstype', 'Admin\JsController@jstype');
 Route::get('/jsadvert', 'Admin\JsController@jsadvert');
 
 
+
 //前台首页路由
 Route::resource("/","Home\IndexController");
 //人气商品路由
@@ -99,6 +100,55 @@ Route::resource("/addcoll","Home\IndexController");
 //友情链接申请
 Route::get("links","Home\IndexController@links");
 
+
+
+//前台中间件
+Route::group(['middleware'=>'ulogin'], function(){
+	
+	});
+
+//前台注册
+Route::resource('/register', 'User\RegisterController');
+//前台获取注册验证码
+Route::get('/registercode','User\RegisterController@getCode');
+//前台ajax验证校验码
+Route::get('/codecheck','User\RegisterController@check');
+//前台ajax验证注册用户名
+Route::get('/namecheck','User\RegisterController@namecheck');
+//前台ajax验证注册手机号码
+Route::get('/phonecheck','User\RegisterController@phonecheck');
+//前台登录
+Route::resource('/ulogin','User\UloginController');
+//前台退出登录
+Route::resource('/ulogout','User\UloginController@logout');
+//前台通过手机号找回密码
+Route::get('/forget','User\UloginController@forget');
+//处理手机号与验证码
+Route::post('/doforget','User\UloginController@doforget');
+//重置密码
+Route::post('/dofind','User\UloginController@dofind');
+
+//购物车页面
+Route::get('/ushoppingcar','User\UshopcarController@index');
+//ajax增加数量
+Route::get('/ajaxcaradd','User\UshopcarController@ajaxadd');
+//ajax减少数量
+Route::get('/ajaxcarsubtract','User\UshopcarController@ajaxsubtract');
+//ajax删除购物车
+Route::get('/ajaxdel','User\UshopcarController@ajaxdel');
+//删除全部
+Route::get('/alldel','User\UshopcarController@alldel');
+
+//前台处理订单页面
+Route::post('/uorderadd','User\UorderController@makeorder');
+//前台处理立即购买页面
+Route::get('/onlygoods/{id}','User\UorderController@onlygoods');
+//前台购买后订单详情页面
+Route::post('/orderdetail','User\UorderController@show');
+//前台支付方法
+Route::post('/pays','User\UorderController@pays');
+//支付成功跳转页面
+Route::get('/success','User\UorderController@success');
 
 
 

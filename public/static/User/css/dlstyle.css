@@ -65,7 +65,11 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px #fff inset;}
 /*注册*/
 .verification {position: relative;}
 input#code {width: 80%;}
+<<<<<<< HEAD
 #dyMobileButton{margin-left: 10px;border: 1px solid #DDD;padding: 0px;width: 15%;height: 40px;background: #F4F4F4 none repeat scroll 0% 0%;margin-top: 0px;text-align: center;line-height:40px;color: #333;text-decoration: none;position: absolute;right: 0px;bottom: 0px;}
+=======
+#dyMobileButton{margin-left: 10px;border: 1px solid #DDD;padding: 0px;height: 40px;background: #F4F4F4 none repeat scroll 0% 0%;margin-top: 0px;text-align: center;line-height:40px;color: #333;text-decoration: none;position: absolute;right: 0px;bottom: 0px;}
+>>>>>>> 0dd95b8bd1fa011f17e92c77673b5d99518c9c6c
 
 
 /*修改的样式*/
@@ -98,12 +102,21 @@ form,.am-cf,.partner{max-width:640px;margin:20px auto ;}
 }
 @media screen and (min-width:1025px){
 
+<<<<<<< HEAD
 .login-box,.login-box2 {width: 100%;max-width:360px;height: 430px;position: absolute;margin-top:20px;margin-left:0px;background:#f8f8f8;right:2%;padding:10px 20px;}
 .login-box2 {height:430px;}
 .login-boxtitle {max-width: 1000px;margin: 0px auto;height: 60px;}
 .login-boxtitle img{height:60px;}
 .login-banner,.res-banner{width:100%;height:470px; background:#fd7a72;}
 .login-main,.res-main{max-width:1000px;height:470px; margin:0px auto; position:relative;}
+=======
+.login-box,.login-box2 {width: 100%;max-width:360px;height: 520px;position: absolute;margin-top:20px;margin-left:0px;background:#f8f8f8;right:2%;padding:10px 20px;}
+.login-box2 {height:480px;}
+.login-boxtitle {max-width: 1000px;margin: 0px auto;height: 60px;}
+.login-boxtitle img{height:60px;}
+.login-banner,.res-banner{width:100%;height:550px; background:#fd7a72;}
+.login-main,.res-main{max-width:1000px;height:500px; margin:0px auto; position:relative;}
+>>>>>>> 0dd95b8bd1fa011f17e92c77673b5d99518c9c6c
 
 /*头部*/
 .login-boxtitle{display: block;}
