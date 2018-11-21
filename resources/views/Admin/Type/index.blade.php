@@ -68,8 +68,8 @@
          <tbody role="alert" aria-live="polite" aria-relevant="all">
          @foreach($cate as $row)
             <tr class="gradeX odd"> 
-             <td class="  sorting_1">{{$num++}}</td>
-             <td class=" ">{{$row->name}}</td> 
+             <td class="sorting_1" myid="{{$row->id}}" pid="{{$row->parentid}}">{{$num++}}</td>
+             <td class="" >{{$row->name}}</td> 
              <td class="center "><a href="/atypelist?pid={{$row->id}}" class="btn btn-success">查看子分类</a>&nbsp;&nbsp;&nbsp;<a href="/atype/{{$row->id}}/edit" class="btn btn-primary">修改</a>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" class="btn btn-danger del">删除</a></td> 
             </tr>
 		     @endforeach
@@ -103,13 +103,13 @@
  $('.del').click(function(){
   // alert(1)
   //获取id
-  id = $(this).parents('tr').find('td:first').html();
-  pid = $(this).parents('tr').find('td:eq(2)').html();
+  id = $(this).parents('tr').find('td:first').attr('myid');
+  pid = $(this).parents('tr').find('td:first').attr('pid');
   // alert(pid);
   row = $(this).parents('tr');
   // alert(id);
   
-  //ajax
+  // ajax
   if (confirm('删除分类会连带商品一起删除，确定要删除吗')){
     $.get('/atypedel',{id:id,pid:pid},function (data){
       // alert(data);

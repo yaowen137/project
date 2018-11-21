@@ -45,8 +45,36 @@ class OrderController extends Controller
                 break;
 
             }
-        }
+            $v->express = explode(',', $v->express);
+            switch($v->express[0])
+            {   
+                case 'shunfeng':
+                $v->express[0] = '顺丰';
+                break;
 
+                case 'shentong':
+                $v->express[0] = '申通';
+                break;
+
+                case 'yuantong':
+                $v->express[0] = '圆通';
+                break;
+
+                case 'yunda':
+                $v->express[0] = '韵达';
+                break;
+
+                case 'ems':
+                $v->express[0] = 'EMS';
+                break;
+
+                case 'zhongtong':
+                $v->express[0] = '中通';
+                break;
+
+            }
+            $v->express = implode(' -> ', $v->express);
+        }
         
 
         $num = 1;
@@ -141,9 +169,9 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($request->input('name') != null)
+        if($request->input('name') != null && $request->input('com') != null)
         {
-         $data=$request->input('name');
+         $data=$request->input('com').','.$request->input('name');
          $int[] = ['status'=>3,'express'=>$data];
          // dd($int);
         $id = $id;

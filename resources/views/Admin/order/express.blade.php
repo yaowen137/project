@@ -33,7 +33,20 @@
           </div>
           <div class="widget-content nopadding">
           <form action="/aorder/{{$id}}" method="post" class="form-horizontal">
-
+            <div class="control-group">
+              <label class="control-label">快递公司 :</label>
+              <div class="controls">
+                <select name="com">
+                  <option disabled selected>--请选择--</option>
+                  <option value="shunfeng">顺丰</option>
+                  <option value="shentong">申通</option>
+                  <option value="yuantong">圆通</option>
+                  <option value="yunda">韵达</option>
+                  <option value="ems">EMS</option>
+                  <option value="zhongtong">中通</option>
+                </select>
+              </div>
+            </div>
             <div class="control-group">
               <label class="control-label">订单号 :</label>
               <div class="controls">

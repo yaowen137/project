@@ -66,7 +66,7 @@
          <tbody role="alert" aria-live="polite" aria-relevant="all">
          @foreach($cate as $row)
             <tr class="gradeX odd"> 
-             <td class="  sorting_1">{{$num++}}</td> 
+             <td class="  sorting_1" myid="{{$row->id}}">{{$num++}}</td> 
              <td class=" ">{{$row->name}}</td> 
              <td class=" ">{{$row->parentid}}</td> 
              <td class=" ">{{$row->path}}</td> 
@@ -108,7 +108,7 @@
  $('.del').click(function(){
   // alert(1)
   //获取id
-  id = $(this).parents('tr').find('td:first').html();
+  id = $(this).parents('tr').find('td:first').attr('myid');
 
   row = $(this).parents('tr');
   // alert(id);

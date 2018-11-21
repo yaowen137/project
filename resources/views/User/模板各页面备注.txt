@@ -1,0 +1,44 @@
+public可被继承的模板
+
+detail                     index               list
+代码演示
+@extends("Home.public")
+@section('title','test')
+@section('shoping',(如果已登录，调动shoppingcar，获取条数填入)
+@section（'level',（如果已登录，吧session（'user'）['level']）转成中文填入）
+@section('content')
+<div id="content">
+<h1>FFFF</h1>
+</div>
+@endsection
+
+
+
+________________________________________________________________________________
+
+public2 可被继承的模板
+
+order  shopcar   success
+
+代码演示
+@extends("Home.public2")
+@section('name','test')
+@section('content')
+<div id="content">
+<h1>FFFF</h1>
+</div>
+@endsection
+
+--------------------------------------------------------------------------------------------------------------
+
+public3  person文件夹内所有模板都可被继承
+代码演示
+
+@extends("User.public3")
+@section('title','test')
+@section('shopping','num')
+@section('content')
+<div id="content">
+<h1>FFFF</h1>
+</div>
+@endsection
