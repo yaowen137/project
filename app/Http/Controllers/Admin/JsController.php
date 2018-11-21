@@ -38,7 +38,11 @@ class JsController extends Controller
                         $arr1[] = $name;
                     }
                     $res[$key]->name = implode(' -> ', $arr1).' -> '.$res[$key]->name;
-                    $res[$key]->id = '/ugoodslist/'.$value->id;
+                    if ($num == 2) {
+                        $res[$key]->id = '/ugoodslist/'.$value->id;
+                    } else {
+                        $res[$key]->id = '/utgoodslist/'.$value->id;
+                    }
                     $arr[] = $res[$key];
                 }
             }
