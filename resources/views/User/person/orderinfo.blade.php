@@ -145,7 +145,7 @@
 							<li class="td td-operation">
 								<div class="item-operation">
 									@if ($value->ostatus == '已完成' && $value->odstatus == 1)
-									<a href="/pcomment/{{$value->id}}/?gid={{$value->gid}}"><font color="#1f99bd">评价商品</font></a>
+									<a href="/pcomment/{{$value->odid}}/?gid={{$value->gid}}"><font color="#1f99bd">评价商品</font></a>
 									@endif
 								</div>
 							</li>

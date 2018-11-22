@@ -18,7 +18,7 @@ class OrderController extends Controller
         $k = $request->input('key')??'';
         // dd($request->all());
         
-        $data = DB::table('order')->where('ordernum','like',"%".$k."%")->paginate(3);
+        $data = DB::table('order')->where('ordernum','like',"%".$k."%")->orderBy('id', 'desc')->paginate(3);
 
         foreach($data as $v)
         {

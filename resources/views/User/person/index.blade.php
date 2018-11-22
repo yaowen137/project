@@ -11,7 +11,7 @@
 			<img src="{{$userinfo_data->pic}}">
 		</a>
 		<div class="m-info">
-			<em class="s-name">{{session('user')->nicknamed}}</em>
+			<em class="s-name">{{session('user')->nickname}}</em>
 			<div class="vip1"></div>
 			<div class="safeText">
 				<div class="progressBar"><span style="left: 0px;" class="progress"></span></div>

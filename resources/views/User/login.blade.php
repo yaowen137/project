@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="background:#fff">
  <head lang="en"> 
   <meta charset="UTF-8" /> 
   <title>登录</title> 
@@ -11,17 +11,17 @@
   <link rel="stylesheet" href="/static/User/AmazeUI-2.4.2/assets/css/amazeui.css" /> 
   <link href="/static/User/css/dlstyle.css" rel="stylesheet" type="text/css" /> 
  </head> 
- <body> 
+ <body style="background:#fff"> 
   <div class="login-boxtitle"> 
-   <a href="home.html"><img alt="logo" src="/static/User/images/logobig.png" /></a> 
+   <a href="/"><img alt="logo" src="/static/User/images/logobig.jpg" /></a> 
   </div> 
-  <div class="login-banner"> 
+  <div class="res-banner" style="background:#010101"> 
    <div class="login-main"> 
     <div class="login-banner-bg">
      <span></span>
-     <img src="/static/User/images/big.jpg" />
+     <img src="/static/User/images/timg.jpg" />
     </div> 
-    <div class="login-box"> 
+    <div class="login-box" style="background:#efefef"> 
      <h3 class="title">登录商城</h3> 
      <div class="clear"></div> 
      <div class="login-form1"> 

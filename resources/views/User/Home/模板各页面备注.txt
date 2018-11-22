@@ -1,0 +1,41 @@
+public可被继承的模板
+
+detail                     index               list
+代码演示
+@extends("Home.public")
+@section('name','test')
+@section('content')
+<div id="content">
+<h1>FFFF</h1>
+</div>
+@endsection
+
+
+
+________________________________________________________________________________
+
+public2 可被继承的模板
+
+order  shopcar   success
+
+代码演示
+@extends("Home.public2")
+@section('name','test')
+@section('content')
+<div id="content">
+<h1>FFFF</h1>
+</div>
+@endsection
+
+--------------------------------------------------------------------------------------------------------------
+
+public3  person文件夹内所有模板都可被继承
+代码演示
+
+@extends("Home.public3")
+@section('name','test')
+@section('content')
+<div id="content">
+<h1>FFFF</h1>
+</div>
+@endsection

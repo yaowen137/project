@@ -65,8 +65,57 @@ Route::get('/jstype', 'Admin\JsController@jstype');
 Route::get('/jsadvert', 'Admin\JsController@jsadvert');
 
 
+
+//前台首页路由
+Route::resource("/","Home\IndexController");
+//人气商品路由
+Route::get("/ubuzz","Home\IndexController@ubuzz");
+//新品上市路由
+Route::get("/unew","Home\IndexController@unew");
+//限时发售路由
+Route::get("/ulimit","Home\IndexController@ulimit");
+//尊享产品路由
+Route::get("/uexpensive","Home\IndexController@uexpensive");
+//首页轮播图商品列表
+Route::get("/utgoodslist/{id}","Home\IndexController@utgoodslist");
+//搜索列表页
+Route::get("/goodslist","Home\IndexController@goodslist");
+//商品列表
+Route::get("/ugoodslist/{id}","Home\IndexController@ugoodslist");
+//商品详情
+Route::get("/ugoodsinfo/{id}","Home\IndexController@ugoodsinfo");
+
+//ajax分页路由
+Route::get("/ajaxpag/{id}","Home\IndexController@ajaxpag");
+
+//立即购买路由
+Route::get("/buy/{id}","Home\IndexController@buy");
+//添加购物车路由
+Route::get("/shoppingcar/{id}","Home\IndexController@shoppingcar");
+//收藏
+Route::get("/coll/{id}","Home\IndexController@coll");
+//收藏添加
+Route::resource("/addcoll","Home\IndexController");
+
+
+//友情链接申请
+Route::get("/links","Home\IndexController@links");
+
+
+
 //前台中间件
 Route::group(['middleware'=>'ulogin'], function(){
+	//前台退出登录
+	Route::get('/ulogout','User\UloginController@logout');
+	//立即购买路由
+	Route::get("/buy/{id}","Home\IndexController@buy");
+	//添加购物车路由
+	Route::get("/shoppingcar/{id}","Home\IndexController@shoppingcar");
+	//收藏
+	Route::get("/coll/{id}","Home\IndexController@coll");
+	//收藏添加
+	Route::resource("/addcoll","Home\IndexController");
+
 	//购物车页面
 	Route::get('/ushoppingcar','User\UshopcarController@index');
 
@@ -193,8 +242,7 @@ Route::get('/namecheck','User\RegisterController@namecheck');
 Route::get('/phonecheck','User\RegisterController@phonecheck');
 //前台登录
 Route::resource('/ulogin','User\UloginController');
-//前台退出登录
-Route::get('/ulogout','User\UloginController@logout');
+
 //前台通过手机号找回密码
 Route::get('/forget','User\UloginController@forget');
 //处理手机号与验证码

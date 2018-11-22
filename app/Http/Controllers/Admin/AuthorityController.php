@@ -89,7 +89,10 @@ class AuthorityController extends Controller
         $data['addtime'] = time();
         $data['password'] = Hash::make($data['password']);
         unset($data['repassword']);
-        if (DB::table('user')->insert($data)) {
+        if ($uid = DB::table('user')->insertGetid($data)) {
+            $datainfo['uid'] = $uid;
+            $datainfo['phone'] = time().rand(0,9);
+            DB::table('userinfo')->insert($datainfo);
             return redirect('/aauthority')->with('success','添加成功');
         } else {
             return redirect('/aauthority/crate')->with('error','添加失败');

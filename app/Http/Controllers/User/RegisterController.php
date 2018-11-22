@@ -19,9 +19,8 @@ class RegisterController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        // dd(\Cookie::get('params'));
-        
+        // 加载模板
+        return view('User.register');
     }
 
     /**
@@ -45,8 +44,7 @@ class RegisterController extends Controller
     //发送验证码
     public function getCode(Request $request)
     {
-
-       return sendPhone($request->phone); 
+        return sendPhone($request->phone); 
     }
 
     //检验校验码
@@ -110,7 +108,7 @@ class RegisterController extends Controller
         // $obj = new User();
         //得到成功插入的id序号
         // $num = $obj->insertGetId($user);
-        $num = DB::table('user')->inserGetId($user);
+        $num = DB::table('user')->insertGetId($user);
 
         if ($num){
             // 准备userinfo表数据

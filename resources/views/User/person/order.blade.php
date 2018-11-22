@@ -49,6 +49,7 @@
 
 			<div class="order-main">
 				<div class="order-list">
+				@if (is_array($order_data))
 				@foreach ($order_data as $value)
 					
 					<!--交易成功-->
@@ -90,7 +91,7 @@
 									<li class="td td-operation">
 										<div class="item-operation">
 											@if ($value['status'] == '已完成' && $val->odstatus == 1)
-											<a href="/pcomment/{{$val->id}}/?gid={{$val->gid}}"><font color="#1f99bd">评价商品</font></a>
+											<a href="/pcomment/{{$val->odid}}/?gid={{$val->gid}}"><font color="#1f99bd">评价商品</font></a>
 											@endif
 										</div>
 									</li>
@@ -129,6 +130,7 @@
 						</div>
 					</div>
 				@endforeach
+				@endif
 				</div>
 			</div>
 		</div>
@@ -161,6 +163,7 @@
 
 			<div class="order-main">
 				<div class="order-list">
+					@if (is_array($order_data))
 					@foreach ($order_data as $value)
 					@if ($value['status'] == '待付款')
 					<!--交易成功-->
@@ -239,6 +242,7 @@
 					</div>
 				@endif
 				@endforeach
+				@endif
 				</div>
 			</div>
 		</div>
@@ -269,6 +273,7 @@
 
 			<div class="order-main">
 				<div class="order-list">
+					@if (is_array($order_data))
 					@foreach ($order_data as $value)
 					@if ($value['status'] == '待发货')
 					<!--交易成功-->
@@ -336,6 +341,7 @@
 					</div>
 				@endif
 				@endforeach
+				@endif
 				</div>
 			</div>
 		</div>
@@ -366,6 +372,7 @@
 
 			<div class="order-main">
 				<div class="order-list">
+					@if (is_array($order_data))
 					@foreach ($order_data as $value)
 					@if ($value['status'] == '待收货')
 					<!--交易成功-->
@@ -436,6 +443,7 @@
 					</div>
 				@endif
 				@endforeach
+				@endif
 				</div>
 			</div>
 		</div>
@@ -467,6 +475,7 @@
 
 			<div class="order-main">
 				<div class="order-list">
+				@if (is_array($order_data))
 				@foreach ($order_data as $value)
 					@if ($value['status'] == '已完成')
 					<!--交易成功-->
@@ -509,7 +518,7 @@
 									<li class="td td-operation">
 										<div class="item-operation">
 											@if ($val->odstatus == 1)
-											<a href="/pcomment/{{$val->id}}/?gid={{$val->gid}}"><font color="#1f99bd">评价商品</font></a>
+											<a href="/pcomment/{{$val->odid}}/?gid={{$val->gid}}"><font color="#1f99bd">评价商品</font></a>
 											@endif
 										</div>
 									</li>
@@ -536,6 +545,7 @@
 					</div>
 				@endif
 				@endforeach
+				@endif
 				</div>
 			</div>
 		</div>

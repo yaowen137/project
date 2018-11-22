@@ -98,9 +98,9 @@ function sendPhone($phone)
 
 	//初始化必填
 	//填写在开发者控制台首页上的Account Sid
-	$options['accountsid']='b70ea9ba6c9bcef4e612f0219d88e902';
+	$options['accountsid']='4f96d57045317f0cfadc57f4fad5b3a8';
 	//填写在开发者控制台首页上的Auth Token
-	$options['token']='4adbb781143f7fabc344b8fdc0cd73c5';
+	$options['token']='5342838727ca24c46f7bb6678c9059ef';
 
 	//初始化 $options必填
 	$ucpass = new Ucpaas($options);
@@ -110,8 +110,8 @@ function sendPhone($phone)
 	// require_once('serverSid.php');
 
 
-	$appid = "6f62c4bb52ef46cca4c0dc95fe71772d";	//应用的ID，可在开发者控制台内的短信产品下查看
-	$templateid = "373837";    //可在后台短信产品→选择接入的应用→短信模板-模板ID，查看该模板ID
+	$appid = "b8005e80c44e4a0a8dea220800665548";	//应用的ID，可在开发者控制台内的短信产品下查看
+	$templateid = "387148";    //可在后台短信产品→选择接入的应用→短信模板-模板ID，查看该模板ID
 	//验证码 rand()随机数
 	$param = rand(1000,9999); //多个参数使用英文逗号隔开（如：param=“a,b,c”），如为参数则留空
 

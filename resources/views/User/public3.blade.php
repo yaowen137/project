@@ -31,7 +31,7 @@
       <ul class="message-l"> 
        <div class="topMessage"> 
         <div class="menu-hd">
-         欢迎<a href="/pindex" target="_top" class="h"><font color="#35cae2" id="nickname2">{{session('user')['nickname']}}</font></a> &nbsp;&nbsp;&nbsp;
+         欢迎<a href="/pindex" target="_top" class="h"><font color="#35cae2" id="nickname2">{{session('user')->nickname}}</font></a> &nbsp;&nbsp;&nbsp;
          <a href="/ulogout" target="_top">退出</a>
         </div> 
        </div> 
@@ -66,10 +66,13 @@
       </div> 
       <div class="search-bar pr"> 
        <a name="index_none_header_sysc" href="#"></a> 
-       <form> 
-        <input id="searchInput" name="keyword" type="text" placeholder="搜索" autocomplete="off" /> 
-        <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit" /> 
-       </form> 
+       <form action="/goodslist" method="get">
+      
+
+      <input id="searchInput" name="key" value="{{$request['Key'] or ''}}"  type="text" placeholder="搜索"  autocomplete="off" /> 
+
+      <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit" /> 
+     </form> 
       </div> 
      </div> 
      <div class="clear"></div> 

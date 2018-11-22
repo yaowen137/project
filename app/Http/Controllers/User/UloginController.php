@@ -134,7 +134,7 @@ class UloginController extends Controller
             DB::table('user')->where('id','=',$res->uid)->update(['password'=>$newpwd]);
             //消除session('phone')
             $request->session()->pull('phone');
-            return redirect('/ulogin/create');
+            return redirect('/ulogin');
         }else{
            // 不一致返回重新设置 
             return redirect('/forget')->with('info','重置密码失败');

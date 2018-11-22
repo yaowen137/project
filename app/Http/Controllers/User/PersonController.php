@@ -34,46 +34,51 @@ class PersonController extends Controller
       ->where('order_detail.uid', session('user')->id)
       ->where('order.status', '!=', 0)
       ->select('order.id', 'order.status', 'order.addtime', 'order_detail.oid', 'order_detail.amount', 'goods.price', 'goods.pic')
+      ->orderBy('id', 'desc')
       ->get();
-      $i = 0;
-      $order_data[$i] = $order_detail_data[0];
-      $order_data[$i]->num = $order_data[$i]->amount;
-      $order_data[$i]->total = $order_data[$i]->price * $order_data[$i]->amount;
-      unset($order_detail_data[0]);
-      foreach ($order_detail_data as $value) {
-        if ($order_data[$i]->oid == $value->oid) {
-          $order_data[$i]->total += $value->price * $value->amount;
-          $order_data[$i]->num += $value->amount;
-        } else {
-          $i++;
-          $order_data[$i] = $value;
-          $order_data[$i]->total = $value->price * $value->amount;
-          $order_data[$i]->num = $value->amount;
+      if (isset($order_detail_data[0])) {
+        $i = 0;
+        $order_data[$i] = $order_detail_data[0];
+        $order_data[$i]->num = $order_data[$i]->amount;
+        $order_data[$i]->total = $order_data[$i]->price * $order_data[$i]->amount;
+        unset($order_detail_data[0]);
+        foreach ($order_detail_data as $value) {
+          if ($order_data[$i]->oid == $value->oid) {
+            $order_data[$i]->total += $value->price * $value->amount;
+            $order_data[$i]->num += $value->amount;
+          } else {
+            $i++;
+            $order_data[$i] = $value;
+            $order_data[$i]->total = $value->price * $value->amount;
+            $order_data[$i]->num = $value->amount;
+          }
         }
-      }
-      // dd($order_data);
-      foreach ($order_data as $val) {
-        switch ($val->status) {
-          case '1':
-            $val->status = '待付款';
-            break;
-          
-          case '2':
-            $val->status = '待发货';
-            break;
-          
-          case '3':
-            $val->status = '待收货';
-            break;
-          
-          case '4':
-            $val->status = '已完成';
-            break;
-          
+        // dd($order_data);
+        foreach ($order_data as $val) {
+          switch ($val->status) {
+            case '1':
+              $val->status = '待付款';
+              break;
+            
+            case '2':
+              $val->status = '待发货';
+              break;
+            
+            case '3':
+              $val->status = '待收货';
+              break;
+            
+            case '4':
+              $val->status = '已完成';
+              break;
+            
+          }
         }
+      } else {
+        $order_data = '';
       }
     	// 获取收藏列表信息
-    	$collection_data = collection::where('uid', session('user')->id)->get();
+    	$collection_data = collection::where('uid', session('user')->id)->orderBy('id', 'desc')->get();
     	// 引入模板
     	return view('User.person.index',['userinfo_data' => $userinfo_data, 'order_data' => $order_data, 'shoppingcar' => $shoppingcar,'collection_data' => $collection_data]);
     }
@@ -337,57 +342,63 @@ class PersonController extends Controller
       ->where('order_detail.uid', $uid)
       ->where('order.status', '!=', 0)
       ->select('order.id', 'order.ordernum', 'order.addtime', 'order.status as ostatus', 'order_detail.amount', 'order_detail.status as odstatus', 'order_detail.id as odid', 'goods.id as gid', 'goods.pic', 'goods.price', 'goods.title')
+      ->orderBy('id', 'desc')
       ->get();
-      // dd($order_detail_data);
-      $i = 0;
-   		$order_data[$i][0] = $order_detail_data[0];
-      $order_data[$i]['total'] = $order_detail_data[0]->amount * $order_detail_data[0]->price;
-      $order_data[$i]['ordernum'] = $order_detail_data[0]->ordernum;
-      $order_data[$i]['addtime'] = $order_detail_data[0]->addtime;
-      $order_data[$i]['status'] = $order_detail_data[0]->ostatus;
-      $order_data[$i]['id'] = $order_detail_data[0]->id;
-      unset($order_detail_data[0]);
-      $arr = array();
-   		foreach ($order_detail_data as $key => $value) {
-        if ($value->id == $order_data[$i]['id']) {
-          $order_data[$i][$key] = $value;
-          $order_data[$i]['total'] += $value->amount * $value->price;
-        } else {
-          $i++;
-          $order_data[$i][$key] = $value;
-          $order_data[$i]['total'] = $order_detail_data[$key]->amount * $order_detail_data[$key]->price;
-          $order_data[$i]['ordernum'] = $order_detail_data[$key]->ordernum;
-          $order_data[$i]['addtime'] = $order_detail_data[$key]->addtime;
-          $order_data[$i]['status'] = $order_detail_data[$key]->ostatus;
-          $order_data[$i]['id'] = $order_detail_data[$key]->id;
+      if (isset($order_detail_data[0])) {
+        $i = 0;
+        $arr = array();
+        $order_data[$i][0] = $order_detail_data[0];
+        $order_data[$i]['total'] = $order_detail_data[0]->amount * $order_detail_data[0]->price;
+        $order_data[$i]['ordernum'] = $order_detail_data[0]->ordernum;
+        $order_data[$i]['addtime'] = $order_detail_data[0]->addtime;
+        $order_data[$i]['status'] = $order_detail_data[0]->ostatus;
+        $order_data[$i]['id'] = $order_detail_data[0]->id;
+        if ($order_detail_data[0]->ostatus == 4 && $order_detail_data[0]->odstatus == 1) {
+          $arr[0]['gid'] = $order_detail_data[0]->gid;
+          $arr[0]['odid'] = $order_detail_data[0]->odid;
+        };
+        unset($order_detail_data[0]);
+        foreach ($order_detail_data as $key => $value) {
+          if ($value->id == $order_data[$i]['id']) {
+            $order_data[$i][$key] = $value;
+            $order_data[$i]['total'] += $value->amount * $value->price;
+          } else {
+            $i++;
+            $order_data[$i][$key] = $value;
+            $order_data[$i]['total'] = $order_detail_data[$key]->amount * $order_detail_data[$key]->price;
+            $order_data[$i]['ordernum'] = $order_detail_data[$key]->ordernum;
+            $order_data[$i]['addtime'] = $order_detail_data[$key]->addtime;
+            $order_data[$i]['status'] = $order_detail_data[$key]->ostatus;
+            $order_data[$i]['id'] = $order_detail_data[$key]->id;
+          }
+          if ($value->ostatus == 4 && $value->odstatus == 1) {
+            $arr[$key]['gid'] = $value->gid;
+            $arr[$key]['odid'] = $value->odid;
+          }
         }
-        if ($value->ostatus == 4 && $value->odstatus == 1) {
-          $arr[$key]['gid'] = $value->gid;
-          $arr[$key]['odid'] = $value->odid;
+        foreach ($order_data as $key => $val) {
+          switch ($val['status']) {
+            case 1:
+              $order_data[$key]['status'] = '待付款';
+              break;
+
+            case 2:
+              $order_data[$key]['status'] = '待发货';
+              break;
+
+            case 3:
+              $order_data[$key]['status'] = '待收货';
+              break;
+
+            case 4:
+              $order_data[$key]['status'] = '已完成';
+              break;
+          }
         }
+        session('user')->comment = $arr;
+      } else {
+        $order_data = '';
       }
-      foreach ($order_data as $key => $val) {
-        switch ($val['status']) {
-          case 1:
-            $order_data[$key]['status'] = '待付款';
-            break;
-
-          case 2:
-            $order_data[$key]['status'] = '待发货';
-            break;
-
-          case 3:
-            $order_data[$key]['status'] = '待收货';
-            break;
-
-          case 4:
-            $order_data[$key]['status'] = '已完成';
-            break;
-        }
-      }
-      // dd($order_data);
-   		session('user')->comment = $arr;
-   		
    		return view('User.person.order', ['shoppingcar' => $shoppingcar, 'order_data' => $order_data]);
    	}
 
@@ -415,7 +426,7 @@ class PersonController extends Controller
       ->join('goods', 'order_detail.gid', 'goods.id')
       ->where('order.uid', $uid)
       ->where('order.id', $id)
-      ->select('order.aid', 'order.express', 'order.ordernum', 'order.addtime', 'order.status as ostatus', 'order_detail.amount', 'order_detail.id', 'order_detail.status as odstatus', 'goods.id as gid', 'goods.pic', 'goods.price', 'goods.title')
+      ->select('order.aid', 'order.id as oid', 'order.express', 'order.ordernum', 'order.addtime', 'order.status as ostatus', 'order_detail.amount', 'order_detail.id as odid', 'order_detail.status as odstatus', 'goods.id as gid', 'goods.pic', 'goods.price', 'goods.title')
       ->get();
       $order_data = array('total' => 0);
       foreach ($order_detail_data as $value) {
@@ -483,17 +494,23 @@ class PersonController extends Controller
    		$data = $request->only('score', 'gid', 'odid', 'content');
    		$data['uid'] = session('user')->id;
    		$vrf = session('user')->comment;
+      if ($vrf == array()) {
+        echo '<script>alert("存在非法操作，评价写入失败！");location="/porder"</script>';exit;
+      }
    		foreach ($vrf as $value) {
    			if ($value['gid'] == $data['gid'] && $value['odid'] == $data['odid']) {
    				if ($data['score'] == 1 || $data['score'] == 2 || $data['score'] == 3) {
-   					comment::insert($data);
-	   				order_detail::where('id', $data['odid'])->update(['status' => 2]);
-	   				echo '<script>alert("操作成功,感谢您的评价！");location="/porder"</script>';
+            if (order_detail::where('id', $data['odid'])->where('status', '1')->update(['status' => 2])) {
+              comment::insert($data);
+              echo '<script>alert("操作成功,感谢您的评价！");location="/porder"</script>';exit;
+            } else {
+              echo '<script>alert("存在非法操作，评价写入失败！");location="/porder"</script>';exit;
+            }
    				} else {
-   					echo '<script>alert("存在非法操作，评价写入失败！");location="/porder"</script>';
+   					echo '<script>alert("存在非法操作，评价写入失败！");location="/porder"</script>';exit;
    				}
    			} else {
-   				echo '<script>alert("存在非法操作，评价写入失败！");location="/porder"</script>';
+   				echo '<script>alert("存在非法操作，评价写入失败！");location="/porder"</script>';exit;
    			}
    		}
    	}

@@ -29,6 +29,7 @@ class TypeController extends Controller
             //字符中重复函数
             $cate[$key]->name = str_repeat('--|',$num).$value->name;
        }
+      
        return $cate;
     }
     public function index(Request $request)

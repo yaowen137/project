@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="background:#fff">
  <head lang="en"> 
   <meta charset="UTF-8" /> 
   <title>注册</title> 
@@ -15,17 +15,17 @@
   <script src="/static/User/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
   <script type="text/javascript" src="/static/js/jquery-1.8.3.min.js"></script> 
  </head> 
- <body> 
+ <body style="background:#fff"> 
   <div class="login-boxtitle"> 
-   <a href="home/demo.html"><img alt="" src="/static/User/images/logobig.png" /></a> 
+   <a href="/"><img alt="" src="/static/User/images/logobig.jpg" /></a> 
   </div> 
-  <div class="res-banner"> 
+  <div class="res-banner" style="background:#010101"> 
    <div class="res-main"> 
     <div class="login-banner-bg">
      <span></span>
-     <img src="/static/User/images/big.jpg" />
+     <img src="/static/User/images/timg.jpg" />
     </div> 
-    <div class="login-box"> 
+    <div class="login-box"  style="background:#efefef"> 
      <div class="am-tabs" id="doc-my-tabs"> 
       <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify"> 
        <!-- <li class="am-active"><a href="">邮箱注册</a></li>  -->

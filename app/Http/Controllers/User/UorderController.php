@@ -42,17 +42,12 @@ class UorderController extends Controller
     // 处理立即购买页面
     public function onlygoods(Request $request,$id)
     {
-    	$id = session('user')->id;
-    	// dd($request->all());
-    	//接收数据,接收选中的商品id集合
-    	$arr[] = $id;
-    	
-    	$str = implode(',',$arr);
+    	$uid = session('user')->id;
     	//查询goods与shoppingcar信息
     	// $goods = DB::select("select title,pic,price,amount from goods,shoppingcar where gid in({$str}) and uid = {$id} ");
-    	$goods = DB::table('goods')->whereIn('id',$arr)->orderBy('id', 'asc')->get();
+    	$goods = DB::table('goods')->where('id',$id)->orderBy('id', 'asc')->get();
     	
-    	$data2 = DB::table('shoppingcar')->where('uid',session('user')->id)->whereIn('gid',$arr)->orderBy('gid', 'asc')->get();
+    	$data2 = DB::table('shoppingcar')->where('uid', $uid)->where('gid',$id)->orderBy('gid', 'asc')->get();
     	foreach ($data2 as $key => $value) {
     		$goods[$key]->amount = $value->amount;
     		$goods[$key]->sid = $value->id;

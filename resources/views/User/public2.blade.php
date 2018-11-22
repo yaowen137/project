@@ -38,14 +38,19 @@
     </div> 
     <div class="topMessage my-shangcheng"> 
      <div class="menu-hd MyShangcheng">
-      <a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
+      <a href="/pindex" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
      </div> 
     </div> 
     <div class="topMessage mini-cart"> 
      <div class="menu-hd">
-      <a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">@yield('shoppingcar')</strong></a>
+      <a id="mc-menu-hd" href="/ushoppingcar" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h"></strong></a>
      </div> 
     </div>
+    <div class="topMessage my-shangcheng"> 
+      <div class="menu-hd MyShangcheng">
+       <a href="/pcollection" target="_top"><i class="am-icon-heart am-icon-fw"></i>收藏夹</a>
+      </div> 
+    </div> 
    </ul> 
   </div> 
   <!--悬浮搜索框--> 
@@ -55,10 +60,13 @@
    </div> 
    <div class="search-bar pr"> 
     <a name="index_none_header_sysc" href="#"></a> 
-    <form> 
-     <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off" /> 
-     <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit" /> 
-    </form> 
+    <form action="/goodslist" method="get">
+      
+
+      <input id="searchInput" name="key" value="{{$request['Key'] or ''}}"  type="text" placeholder="搜索"  autocomplete="off" /> 
+
+      <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit" /> 
+     </form> 
    </div> 
   </div> 
   <div class="clear"></div> 

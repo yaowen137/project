@@ -21,7 +21,7 @@
      <div class="topMessage"> 
       <div class="menu-hd"> 
         @if (session('user'))
-         <a href="#" target="_top" class="h">欢迎{{session('user')['nickname']}}</a> &nbsp;&nbsp;&nbsp;
+         <a href="#" target="_top" class="h">欢迎{{session('user')->nickname}}</a> &nbsp;&nbsp;&nbsp;
          <a href="#" target="_top">退出</a>
         @else
          <a href="#" target="_top" class="h">请登录</a> &nbsp;&nbsp;&nbsp;
