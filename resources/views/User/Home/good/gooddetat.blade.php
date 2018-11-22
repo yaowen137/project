@@ -321,9 +321,7 @@
             <!--<h3 class="am-comment-title">评论标题</h3>--> 
             <div class="am-comment-meta"> 
              <!-- 评论元数据 --> 
-             <a href="#link-to-user" class="am-comment-author">{{$datum->username}}</a> 
-             <!-- 评论者 --> 评论于 
-             <time datetime="">{{date('Y-m-d',$datum->addtime)}}</time> 
+             <a href="#link-to-user" class="am-comment-author">{{$datum->username}}</a>  
             </div> 
            </header> 
            <div class="am-comment-bd"> 

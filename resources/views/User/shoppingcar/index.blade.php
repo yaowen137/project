@@ -65,11 +65,11 @@
        </div> </li> 
       <li class="td td-item"> 
        <div class="item-pic"> 
-        <a href="#" target="_blank" data-title="{{$row->title}}" class="J_MakePoint" data-point="tbcart.8.12"> <img src="{{$row->pic}}" style="width:80px;height:80px"/></a> 
+        <a href="/ugoodsinfo/{{$row->gid}}" target="_blank" data-title="{{$row->title}}" class="J_MakePoint" data-point="tbcart.8.12"> <img src="{{$row->pic}}" style="width:80px;height:80px"/></a> 
        </div> 
        <div class="item-info"> 
         <div class="item-basic-info"> 
-         <a href="#" target="_blank" title="{{$row->title}}" class="item-title J_MakePoint" data-point="tbcart.8.11">{{$row->title}}</a> 
+         <a href="/ugoodsinfo/{{$row->gid}}" target="_blank" title="{{$row->title}}" class="item-title J_MakePoint" data-point="tbcart.8.11">{{$row->title}}</a> 
         </div> 
        </div> </li> 
       <li class="td td-info"> 
@@ -104,7 +104,7 @@
        </div> </li> 
       <li class="td td-op"> 
        <div class="td-inner"> 
-        <a title="移入收藏夹" class="btn-fav" href="#"> 移入收藏夹</a> 
+        <a title="移入收藏夹" class="btn-fav" gid="{{$row->id}}" > 移入收藏夹</a> 
         <a href="javascript:;" data-point-url="#" class="delete" id="{{$row->id}}"> 删除</a>
        </div> </li> 
      </ul>
@@ -248,6 +248,20 @@ $('.delete').click(function(){
   });
 });
 
+
+// 商品移入收藏夹
+$('.btn-fav').click(function(){
+  id = $(this).attr('gid');
+  // alert(id);
+  $.get('/coll/'+id, function(result)
+  {
+    if (result[15] == '已') {
+      alert('已经收藏此商品！');
+    } else {
+      alert('收藏成功');
+    }
+  })
+})
 
  </script>
 </html>
